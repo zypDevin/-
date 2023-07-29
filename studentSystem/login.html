@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="./js/lib/jquery.min.js"></script>
+    <title>登录</title>
+</head>
+
+<body>
+    <div class="box">
+        <div class="pre-box">
+            <h1>WELCOME</h1>
+            <p>JOIN US!</p>
+            <div class="img-box">
+                <img src="./images/1.jpg">
+            </div>
+        </div>
+        <div class="register-form">
+            <div class="title-box">
+                <h1>注册</h1>
+            </div>
+            <div class="input-box">
+                <input required type="text" placeholder="邮箱" name="email-reg" autocomplete="off">
+                <p></p>
+                <input required type="text" placeholder="验证码" autocomplete="off" name="yanzhengma">
+                <p></p>
+                <!-- <div class="getCode-box"></div> -->
+                <input required type="password" placeholder="密码" autocomplete="off" name="password-reg">
+                <p></p>
+            
+            </div>
+            <div class="btn-box">
+                <button id="getCode">获取验证码</button>
+                <button id="register-btn">注册</button>
+                <p onclick="mySwitch()">前往登录</p>
+            </div>
+        </div>
+        <div class="login-form">
+            <div class="title-box">
+                <h1>登录</h1>
+            </div>
+            <div class="input-box">
+                <input required type="text" placeholder="邮箱" autocomplete="off" name="email-log">
+                <p class="email-tip"></p>
+                <input required type="password" placeholder="密码" name="password-log" autocomplete="off">
+            </div>
+            <div class="btn-box">
+                <button id="login">登录</button>
+                <p onclick="mySwitch()">注册新用户</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./js/login.js"></script>
+</body>
+
+</html>

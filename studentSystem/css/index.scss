@@ -1,0 +1,617 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+html,
+body {
+    height: 100vh;
+}
+
+body {
+    z-index: 0;
+    background: linear-gradient(to right, rgb(247, 209, 215), skyblue);
+    transition: all .3s;
+}
+
+.night {
+    background: #424242;
+    color: antiquewhite !important;
+}
+
+.nav-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
+
+    .logo {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 10px;
+        overflow: hidden;
+        cursor: default;
+
+        img {
+            height: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+        }
+
+        h3 {
+            background: linear-gradient(to right, rgb(171, 88, 101), rgb(135, 206, 235));
+            -webkit-background-clip: text;
+            color: transparent;
+            font-size: 20px;
+        }
+    }
+
+    .menu {
+        flex: 9;
+
+
+        ul {
+            display: flex;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            padding-left: 100px;
+
+            cursor: pointer;
+
+
+            li {
+                padding: 0 20px;
+                overflow-y: hidden;
+                transition: all .3s ease;
+
+                p {
+                    height: 50px;
+                    transition: all .3s ease;
+                }
+            }
+
+
+
+            li:nth-child(2n + 1):hover {
+                background: rgba(97, 17, 17, 0.6);
+
+                p {
+                    transform: scale(1.2);
+                }
+            }
+
+            li:nth-child(2n) {
+                color: #fff;
+                cursor: default;
+            }
+        }
+    }
+
+    .sun-moon {
+        flex: 1;
+        height: 50px;
+        line-height: 50px;
+        display: flex;
+        letter-spacing: 2px;
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+
+        .mask {
+            position: absolute;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+            width: 50%;
+            height: 50px;
+            cursor: default;
+            transition: all 0.2s ease;
+
+            img {
+                width: 100%;
+                border-radius: 15px 0 0 0;
+            }
+
+            ::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.5);
+            }
+        }
+
+        .sun,
+        .moon {
+            flex: 1;
+            transition: background .3s ease-in-out;
+
+            &:hover {
+                background: rgba(97, 17, 17, 0.6);
+            }
+
+            p:hover {
+
+                animation: jump .3s ease-in-out;
+            }
+        }
+
+        .sun {
+            color: orange;
+        }
+    }
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+
+    33% {
+        transform: translateY(-7px);
+    }
+
+    66% {
+        transform: translateY(7px);
+    }
+
+    100% {
+
+        transform: translateY(0);
+    }
+}
+
+//中间部分
+.middle {
+    display: flex;
+
+    //侧边栏
+    .tab-nav {
+        position: relative;
+        width: 0;
+        height: 100vh;
+        text-align: center;
+        margin-top: 20px;
+        background: rgba(142, 206, 234, .6);
+        border-top-right-radius: 100px;
+        border-bottom-right-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
+        box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
+        transition: all .3s;
+
+
+        .call {
+            position: absolute;
+            font-size: 30px;
+            top: 45px;
+            left: 0;
+            cursor: pointer;
+            transition: all .3s;
+
+            &::after {
+                display: block;
+                width: 80px;
+                text-align: center;
+                height: 40px;
+                line-height: 40px;
+                position: absolute;
+                top: -10px;
+                left: 30px;
+                border: 1px solid rgba(255, 255, 255, 0.6);
+                border-radius: 40%;
+                box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
+                content: '我是侧边栏';
+                font-size: 14px;
+                font-weight: 1000;
+                background: linear-gradient(to right, rgb(171, 88, 101), rgb(135, 206, 235));
+                -webkit-background-clip: text;
+                color: transparent;
+                opacity: 0;
+                transition: all .3s;
+            }
+
+            &:hover::after {
+                opacity: 1;
+            }
+        }
+
+        .tab-content {
+            opacity: 0;
+
+            ul {
+                display: flex;
+                flex-direction: column;
+                margin: 200px 0;
+                letter-spacing: 5px;
+                font-size: 30px;
+                cursor: pointer;
+
+                li {
+                    width: 100%;
+                    border-bottom: 1px solid #ccc;
+                    margin-bottom: 20px;
+                    padding-left: 20px;
+                    transition: all .3s;
+
+                    &:hover {
+                        background-color: #965e61;
+                    }
+                }
+            }
+        }
+    }
+
+    //中间部分
+    .middle-item {
+        display: flex;
+        margin: auto;
+        transition: all .3s;
+
+        //首页
+        .home-page {
+            display: flex;
+            position: relative;
+            width: 1200px;
+            height: 700px;
+            margin: auto;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, .6);
+            box-shadow: 4px 4px 3px rgba(0, 0, 0, .1);
+            background: url(../images/60.jpg) no-repeat center;
+            background-size: cover;
+            display: none;
+
+            .home-img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border: 1px solid rgba(255, 255, 255, .6);
+                background-color: transparent;
+                backdrop-filter: blur(4px);
+                border-radius: 8px;
+
+                .home-title {
+                    text-align: center;
+                    margin: 80px;
+                    font-size: 40px;
+                    color: #fff;
+                    text-shadow: 0px 0px 10px black;
+                }
+
+                .home-content {
+                    text-align: center;
+                    margin: 40px 30px;
+                    font-size: 30px;
+                    color: #fff;
+                }
+            }
+
+
+
+        }
+
+        //查看学生信息
+        .check-page {
+            width: 1400px;
+            height: 750px;
+            margin: 20px auto;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, .6);
+            box-shadow: 4px 4px 3px rgba(0, 0, 0, .1);
+            display: none;
+            background: antiquewhite;
+
+            .check-title {
+                width: 100%;
+                height: 100px;
+                line-height: 100px;
+                font-size: 40px;
+                font-weight: 700;
+                text-align: center;
+                color: #000;
+                border-bottom: 1px solid #fff;
+                cursor: default;
+            }
+
+            .statistics {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                height: 48px;
+                font-size: 20px;
+                line-height: 48px;
+                margin: 5px 50px;
+                letter-spacing: 5px;
+                color: #000;
+
+                p span {
+                    color: #9b6757;
+                }
+
+                .change-page {
+                    margin-right: 800px;
+
+                    button {
+
+                        width: 50px;
+                        height: 48px;
+                        text-align: center;
+                        outline: none;
+                        border: none;
+                        border-radius: 8px;
+                        background: #b8daff;
+                        color: #000;
+                        transition: all .3s;
+                        font-size: 14px;
+                        cursor: pointer;
+                        &:hover {
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+
+            table {
+                width: 100%;
+                margin: 20px auto;
+                border-collapse: collapse;
+                color: #000;
+                cursor: default;
+
+                thead {
+                    height: 48px;
+                    text-align: center;
+
+
+                }
+
+                th {
+                    padding: 10px;
+                    font-size: 20px;
+                    font-weight: 700;
+                }
+
+                td,
+                th {
+                    border: 1px solid #f2f2f2;
+                }
+
+                td {
+                    padding: 10px;
+                    text-align: center;
+                    font-size: 18px;
+                }
+
+                tbody tr {
+                    transition: all .2s;
+                }
+
+                tbody tr:hover {
+                    background: #e1ecf8;
+                }
+
+                button {
+                    width: 60px;
+                    height: 30px;
+                    outline: none;
+                    border: none;
+                    background: rgb(135, 206, 235);
+                    border-radius: 4px;
+                    cursor: pointer;
+                    transition: all .2s;
+
+                    &:hover {
+                        background: rgba(135, 206, 235, 0.6)
+                    }
+                }
+            }
+
+
+        }
+
+        //修改个人信息
+        .modify-page {
+            position: relative;
+            width: 1400px;
+            height: 200px;
+            margin: 20px auto;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, .6);
+            box-shadow: 4px 4px 3px rgba(0, 0, 0, .1);
+            display: none;
+            background: rgb(239, 237, 235);
+
+            .ac-img {
+                position: relative;
+
+                img {
+                    position: absolute;
+                    top: -80px;
+                    right: 0;
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+
+            p {
+                position: absolute;
+                top: -60px;
+                left: 550px;
+                font-size: 35px;
+                letter-spacing: 5px;
+            }
+
+            .user-info {
+                width: 100%;
+                margin: 50px auto;
+                text-align: center;
+                color: #333;
+
+                input,
+                select {
+                    width: 100px;
+                    height: 32px;
+                    outline: none;
+                    border: 1px solid #b8daff;
+                    border-radius: 5px;
+                    padding-left: 5px;
+                    margin-right: 15px;
+                }
+
+                .modify {
+                    width: 80px;
+                    height: 32px;
+                    font-size: 16px;
+                    color: #721c24;
+                    background-color: rgb(184, 218, 255);
+                    outline: none;
+                    border: 0;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: all .3s;
+
+                    &:hover {
+                        background-color: rgba(184, 218, 255, 0.6);
+                    }
+                }
+
+                .address {
+                    width: 200px;
+                }
+            }
+
+            .modify-tip-ok {
+                text-align: center;
+                color: #793b18;
+                font-size: 30px;
+                cursor: default;
+                opacity: 0;
+                transition: all .2s;
+            }
+
+
+
+        }
+
+        //删除
+        .check-delete-page {
+            position: relative;
+            width: 1400px;
+            height: 200px;
+            margin: 20px auto;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, .6);
+            box-shadow: 4px 4px 3px rgba(0, 0, 0, .1);
+            display: none;
+            background: rgb(239, 237, 235);
+
+            .ac-img {
+                position: relative;
+
+                img {
+                    position: absolute;
+                    top: -80px;
+                    right: 0;
+                    width: 100px;
+                    height: 100px;
+                }
+            }
+
+            p {
+                position: absolute;
+                top: -60px;
+                left: 600px;
+                font-size: 35px;
+                letter-spacing: 5px;
+            }
+
+            .delete-check-id {
+                color: #000;
+                margin-top: 20px;
+                text-align: center;
+
+                input {
+                    width: 100px;
+                    height: 32px;
+                    outline: none;
+                    border: 1px solid #b8daff;
+                    border-radius: 5px;
+
+                    margin-left: 20px;
+                }
+
+                [name=check-delete-id] {
+                    padding-left: 10px;
+                }
+
+                [type="button"] {
+                    width: 80px;
+                    height: 32px;
+                    font-size: 16px;
+                    color: #721c24;
+                    background-color: rgb(184, 218, 255);
+                    outline: none;
+                    border: 0;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: all .3s;
+
+                    &:hover {
+                        background-color: rgba(184, 218, 255, 0.6);
+                    }
+                }
+            }
+
+            .delete-check {
+                color: #000;
+                opacity: 0;
+
+                h2 {
+                    margin-top: 20px;
+                    text-align: center;
+                    font-size: 24px;
+                }
+
+                ul {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    margin-top: 10px;
+                    font-size: 20px;
+                }
+            }
+
+            .delete-tip-ok {
+                text-align: center;
+                color: #793b18;
+                font-size: 30px;
+                cursor: default;
+                opacity: 0;
+                transition: all .2s;
+            }
+        }
+
+        .active {
+            display: block !important;
+        }
+    }
+
+
+}

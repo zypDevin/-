@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  width: 100vw;
+  height: 100vh;
+  background: url(image/12.jpg) no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content .login-content {
+  position: relative;
+  width: 800px;
+  height: 360px;
+  background-image: radial-gradient(circle at 48.7% 44.3%, #1e90e7 0%, #3871d1 22.9%, #264c8c 76.7%, #1f3f74 100.2%);
+  border-radius: 30px;
+  padding: 30px;
+  box-shadow: 1px 1px 10px 5px rgba(52, 0, 73, 0.2);
+}
+
+.content .login-content .banner-box {
+  display: inline-block;
+  width: 500px;
+  height: 100%;
+  background: url(image/12.jpg) no-repeat;
+  background-size: cover;
+  border-radius: 20px 0 0 20px;
+}
+
+.content .login-content .login-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 330px;
+  height: 100%;
+  border-radius: 0 30px 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content .login-content .login-box h1 {
+  font-size: 36px;
+  margin: 60px 0;
+  color: #fff;
+  cursor: default;
+}
+
+.content .login-content .login-box input {
+  margin-bottom: 20px;
+  width: 200px;
+  height: 36px;
+  padding: 0 20px;
+  border-radius: 36px;
+  border: none;
+  outline: none;
+  background: antiquewhite;
+}
+
+.content .login-content .login-box #login-btn {
+  margin-top: 20px;
+  width: 200px;
+  height: 40px;
+  background-color: #7a00e9;
+  border: none;
+  border-radius: 40px;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 1s;
+}
+
+.content .login-content .login-box #login-btn:hover {
+  color: aquamarine;
+  background-color: #410579;
+}
+
+@media screen and (max-width: 900px) {
+  .login-content {
+    margin: 0 30px;
+  }
+  .login-content .banner-box {
+    border-radius: 20px;
+  }
+  .login-content .login-box {
+    background-color: rgba(52, 0, 73, 0.5);
+  }
+}
+
+@keyframes animate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .content {
+    background: url(image/12.jpg) no-repeat center;
+  }
+  .content .login-content {
+    background-color: rgba(52, 0, 73, 0) !important;
+  }
+  .content .login-content .banner-box {
+    display: none;
+  }
+  .content .login-content .login-box {
+    position: initial;
+    margin: -48px auto;
+    background-color: rgba(52, 0, 73, 0);
+  }
+}

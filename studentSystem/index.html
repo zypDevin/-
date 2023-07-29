@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="./js/lib/jquery.min.js"></script>
+    <title>学生管理系统</title>
+</head>
+
+<body>
+    <div>
+        <!-- header -->
+        <div class="nav-header">
+            <!-- 左边logo(先用图片和字代替...没钱买logo) -->
+            <div class="logo">
+                <img src="./images/3.jpg" alt="">
+                <h3>学生管理</h3>
+            </div>
+            <!-- header中间导航栏 -->
+            <div class="menu">
+                <ul>
+                    <li>
+                        <p class="change-name">用户名</p>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <p class="login-btn">点击登录</p>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <p>了解更多</p>
+                    </li>
+                    <li>|</li>
+                    <li>
+                        <p>微信公众号</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- 右边切换白天黑天 -->
+            <div class="sun-moon">
+                <div class="mask"><img src="./images/4.jpg"></div>
+                <div class="sun" onclick="change_sun_moon()">
+                    <p><i class="fa-solid fa-sun"></i>你好呀~</p>
+                </div>
+                <div class="moon" onclick="change_sun_moon()">
+                    <p><i class="fa-solid fa-moon"></i>天暗啦~</p>
+                </div>
+            </div>
+        </div>
+        <!-- middle -->
+        <div class="middle">
+            <!-- 侧边导航栏 -->
+            <div class="tab-nav">
+                <div class="call"><i class="fa-sharp fa-regular fa-comment"></i></div>
+                <div class="tab-content">
+                    <ul id="tab-btn">
+                        <li data-id="0">首页</li>
+                        <li data-id="1" class="checkall">全部用户信息</li>
+                        <li data-id="2">修改个人信息</li>
+                        <li data-id="3">查询删除信息</li>
+                        <li data-id="4">点我啥都没有</li>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- 中间内容部分 -->
+            <div class="middle-item">
+                <!-- 首页 -->
+                <div class="item home-page active">
+                    <div class="home-img">
+                        <p class="home-title">WELCOME</p>
+                        <p class="home-title">TO THE HOMEPAGE</p>
+                        <p class="home-title">!&nbsp;&nbsp;!&nbsp;&nbsp;!</p>
+                        <p class="home-content">
+                            Do not regret having failed a hundred times!
+                        </p>
+                        <p class="home-content">The environment will not change, the solution is to change yourself!</p>
+                        <p class="home-content">Gather ye rosebuds while ye may, not treatsblossomless spatial booklet!
+                        </p>
+                    </div>
+                </div>
+                <!-- 查看学生信息 -->
+                <div class="item check-page">
+                    <div class="check-title">
+                        学生管理系统
+                    </div>
+                    <div class="statistics">
+                        <div class="paging"><span id="offset">1</span> / <span id="allpages">2</span> 页</div>
+                        <div class="change-page"><button class="up-page">上一页</button>
+                            <button class="down-page">下一页</button>
+                        </div>
+                        <p>共有数据<span class="count">0</span>条</p>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>用户名</th>
+                                <th>年龄</th>
+                                <th>性别</th>
+                                <th>身高(米)</th>
+                                <th>地址</th>
+                                <th>录入时间</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr>
+                                <td>17</td>
+                                <td>wogai</td>
+                                <td>20</td>
+                                <td>男</td>
+                                <td>1.80</td>
+                                <td>何苦元</td>
+                                <td>2023-07-25T13:14:15.000Z</td>
+                                <td>
+                                    <button>删除</button>
+                                </td>
+                            </tr> -->
+                        </tbody>
+
+                    </table>
+
+                </div>
+                <!-- 修改个人信息 -->
+                <div class="item modify-page" id="first-modify">
+                    <div class="ac-img"><img src="./images/ac.gif" alt=""></div>
+                    <p>输入你要修改的信息</p>
+                    <div class="user-info">
+                        ID：<input type="text" name="id" autocomplete="off">
+                        用户名：<input type="text" class="uname" name="uname" autocomplete="off">
+                        年龄：<input type="text" class="age" name="age" autocomplete="off">
+                        性别：
+                        <select name="gender" class="gender">
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                        </select>
+                        身高(米)：<input type="text" class="hight" name="hight" autocomplete="off">
+                        住址：<input type="text" class="address" name="address" autocomplete="off">
+                        <input type="submit" class="modify" autocomplete="off">
+                    </div>
+                    <div class="modify-tip-ok"></div>
+                </div>
+                <!-- 查看和删除用户信息 -->
+                <div class="item check-delete-page">
+                    <div class="ac-img"><img src="./images/ac.gif" alt=""></div>
+                    <p>输入用户ID</p>
+                    <div class="delete-check-id">ID: <input type="text" name="check-delete-id" autocomplete="off">
+                        <input type="button" value="查询" name="check-btn">
+                        <input type="button" value="删除" name="delete-btn">
+
+                    </div>
+                    <div class="delete-check">
+                        <h2>用户信息</h2>
+                        <ul class="person-page">
+
+                        </ul>
+                    </div>
+                    <div class="delete-tip-ok">删除成功!!!</div>
+                </div>
+                <div class="item"></div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
