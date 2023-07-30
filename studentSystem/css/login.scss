@@ -60,6 +60,102 @@ span {
     }
 }
 
+.bulletbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    width: 500px;
+    height: 600px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .3);
+    margin: 200px auto;
+    z-index: 9999;
+}
+
+h2 {
+    text-align: center;
+    padding-top: 50px;
+    padding-left: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.bulletmiddle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.common {
+    display: flex;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.common input {
+    width: 200px;
+    height: 40px;
+    padding-left: 10px;
+    color: #000;
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 8px;
+}
+
+
+
+.common p {
+    width: 100px;
+    padding-right: 10px;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+}
+
+
+
+.bulletsex select {
+    width: 200px;
+    height: 40px;
+    color: #000;
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 8px;
+}
+
+.footer-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+
+    /* margin: 30px 0 0 100px; */
+
+}
+
+.footer-btn button {
+    width: 100px;
+    height: 40px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.bulletmask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2031;
+    background: #000;
+    background: rgba(0, 0, 0, .3);
+
+}
+
 .box {
     display: flex;
     position: relative;

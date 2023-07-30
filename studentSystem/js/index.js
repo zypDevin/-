@@ -84,10 +84,10 @@ login_btn.addEventListener('click', function () {
     console.log(login_btn.value)
     localStorage.clear()
     if (flag_log_reg) {
-        window.location.href = "http://127.0.0.1:5500/%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%80%83%E6%A0%B8/%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A22/index.html"
+        window.location.href = "http://127.0.0.1:5500/index.html"
 
     } else {
-        window.location.href = "http://127.0.0.1:5500/%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%80%83%E6%A0%B8/%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A22/login.html"
+        window.location.href = "http://127.0.0.1:5500/login.html"
     }
 
 })
@@ -148,7 +148,7 @@ function ajaxCheck() {
         },
         error: function (err) {
             console.log(err)
-            window.location.href = "http://127.0.0.1:5500/%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%80%83%E6%A0%B8/%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A22/404.html"
+            window.location.href = "http://127.0.0.1:5500/404.html"
         }
     })
 }
@@ -228,7 +228,7 @@ modify.addEventListener('click', function (e) {
             },
             error: function (err) {
                 console.log(err)
-                window.location.href = "http://127.0.0.1:5500/%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%80%83%E6%A0%B8/%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A22/404.html"
+                window.location.href = "http://127.0.0.1:5500/404.html"
 
             },
             timeout: 6000
@@ -272,7 +272,7 @@ check_btn.addEventListener('click', function () {
         },
         error: function (err) {
             console.log(err)
-            window.location.href = "http://127.0.0.1:5500/%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%80%83%E6%A0%B8/%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A22/404.html"
+            window.location.href = "http://127.0.0.1:5500/404.html"
         }
     })
 

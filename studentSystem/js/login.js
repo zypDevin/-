@@ -62,15 +62,15 @@ function veriftyEmailRegister() {
     return true
 }
 //验证码判断
-const yzm = document.querySelector('[name="yanzhengma"]')
-yzm.addEventListener('change', veriftyEmailYZM)
-function veriftyEmailYZM() {
+const code = document.querySelector('[name="code"]')
+code.addEventListener('change', veriftyEmailCode)
+function veriftyEmailCode() {
     const reg = /^\d{4}$/
-    if (!reg.test(yzm.value)) {
-        yzm.nextElementSibling.innerHTML = '请输入4位数的验证码'
+    if (!reg.test(code.value)) {
+        code.nextElementSibling.innerHTML = '请输入4位数的验证码'
         return false
     }
-    yzm.nextElementSibling.innerHTML = ''
+    code.nextElementSibling.innerHTML = ''
     return true
 }
 
@@ -94,14 +94,12 @@ login.addEventListener('click', function () {
             localStorage.setItem('token', res.token)
             localStorage.setItem('username', res.userInfo.userName)
             localStorage.setItem('id', res.userInfo.id)
-            //判断用户名是否为空，如果是则是第一次登录，先提醒前往修改个人信息并告诉id
-
+            // 判断用户名是否为空，如果是则是第一次登录，则会先显示完善个人信息
             if (res.userInfo.userName === null && res.userInfo.address === null && res.userInfo.hight === null) {
                 console.log(res)
-                alert(`由于您是第一次登录，请先修改信息,否则会影响您的使用。您的ID为${localStorage.getItem('id')}`)
-                window.location.href = "http://127.0.0.1:5500/%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%80%83%E6%A0%B8/%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A22/index.html"
+                bulletShow()
             } else {
-                window.location.href = "http://127.0.0.1:5500/%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%80%83%E6%A0%B8/%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A22/index.html"
+                window.location.href = "http://127.0.0.1:5500/index.html"
             }
 
 
@@ -110,7 +108,7 @@ login.addEventListener('click', function () {
         error: function (err) {
             console.log(err)
             alert('请求超时！')
-            window.location.href = "http://127.0.0.1:5500/%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%80%83%E6%A0%B8/%E7%99%BB%E5%BD%95%E7%95%8C%E9%9D%A22/login.html"
+            window.location.href = "http://127.0.0.1:5500/login.html"
         }
     })
 
@@ -130,6 +128,8 @@ function sendCode() {
                 let i = 60
                 i = i < 10 ? '0' + i : i
                 getCode.innerHTML = `${i}秒后重新获取`
+                getCode.style.cursor = 'not-allowed'
+                getCode.style.opacity = '0.6'
                 let timeId = setInterval(function () {
                     i--
                     i = i < 10 ? '0' + i : i
@@ -137,6 +137,7 @@ function sendCode() {
                     if (i === '00') {
                         clearInterval(timeId)
                         flag = true
+                        getCode.style.cursor = 'default'
                         getCode.innerHTML = `重新获取`
                     }
                 }, 1000)
@@ -164,16 +165,24 @@ function sendCode() {
 
 }
 sendCode()
+
+//功能弹框显示的函数
+const bulletBox = document.querySelector('.bulletbox')
+function bulletShow() {
+    bulletBox.style.display = 'block'
+    document.getElementById('mask').style.width = document.body.clientWidth + "px"
+    document.getElementById('mask').style.height = document.body.clientHeight + "px"
+    document.getElementById('mask').classList.add('bulletmask')
+}
 //注册业务
 const register_btn = document.querySelector('#register-btn')
-
 const password_reg = document.querySelector('[name=password-reg]')
 register_btn.addEventListener('click', function (e) {
-    console.log(email_reg.value)
-    console.log(password_reg.value)
+    // console.log(email_reg.value)
+    // console.log(password_reg.value)
     console.log(localStorage.getItem('code'))
     if (!veriftyEmailRegister) e.preventDefault()
-    if (!veriftyEmailYZM) e.preventDefault()
+    if (!veriftyEmailCode) e.preventDefault()
     $.ajax({
         url: "http://43.138.253.181:8000/users/register",
         type: "POST",
@@ -184,6 +193,8 @@ register_btn.addEventListener('click', function (e) {
         },
         success: function (res) {
             console.log(res)
+
+
             let i = 3
             const timer = setInterval(function () {
                 i--
@@ -193,11 +204,42 @@ register_btn.addEventListener('click', function (e) {
                     register_btn.innerHTML = '注册'
                     email_reg.value = ''
                     password_reg.value = ''
-                    document.querySelector('[name=yanzhengma]').value = ''
+                    document.querySelector('[name=code]').value = ''
                 }
             }, 3000)
 
         }
     })
+})
+
+//第一次登录直接修改信息
+const confirmButton = document.querySelector('#confirm')
+confirmButton.addEventListener('click', function () {
+    $.ajax({
+        url: "http://43.138.253.181:8000/admin/changeUserInfo",
+        type: "POST",
+        headers: {
+            "token": localStorage.getItem('token')
+        },
+        data: {
+            id: localStorage.getItem('id'),
+            userName: document.querySelector('[name=bulletusername]').value,
+            sex: document.querySelector('[name=bulletsex]').value,
+            age: document.querySelector('[name=bulletage]').value,
+            hight: document.querySelector('[name=bullethight]').value,
+            address: document.querySelector('[name=bulletaddress]').value,
+        },
+        success: function (res) {
+            console.log(res)
+            localStorage.setItem('username', document.querySelector('[name=bulletusername]').value)
+            window.location.href = "http://127.0.0.1:5500/index.html"
+        }
+    })
+})
+
+//弹框的取消按钮事件
+const closeButton = document.querySelector('#close')
+closeButton.addEventListener('click', function () {
+    bulletBox.style.display = 'none'
 })
 

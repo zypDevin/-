@@ -10,6 +10,35 @@
 </head>
 
 <body>
+    <div id="mask"></div>
+    <div class="bulletbox">
+        <h2>完善个人信息</h2>
+        <div class="bulletmiddle">
+            <div class="bulletusername common">
+                <p>用户名：</p><input required type="text" placeholder="用户名" name="bulletusername">
+            </div>
+            <div class="bulletage common">
+                <p>年龄：</p><input required type="text" placeholder="年龄" name="bulletage">
+            </div>
+            <div class="bulletsex common">
+                <p>性别：</p><select name="bulletsex" id="">
+                    <option value="请选择性别">请选择性别</option>
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+            </div>
+            <div class="bullethight common">
+                <p>身高(米)：</p><input required type="text" placeholder="身高" name="bullethight">
+            </div>
+            <div class="bulletaddress common">
+                <p>地址：</p><input required type="text" placeholder="地址" name="bulletaddress">
+            </div>
+        </div>
+        <div class="footer-btn">
+            <button id="confirm">确定</button>
+            <button id="close">取消</button>
+        </div>
+    </div>
     <div class="box">
         <div class="pre-box">
             <h1>WELCOME</h1>
@@ -25,12 +54,12 @@
             <div class="input-box">
                 <input required type="text" placeholder="邮箱" name="email-reg" autocomplete="off">
                 <p></p>
-                <input required type="text" placeholder="验证码" autocomplete="off" name="yanzhengma">
+                <input required type="text" placeholder="验证码" autocomplete="off" name="code">
                 <p></p>
                 <!-- <div class="getCode-box"></div> -->
                 <input required type="password" placeholder="密码" autocomplete="off" name="password-reg">
                 <p></p>
-            
+
             </div>
             <div class="btn-box">
                 <button id="getCode">获取验证码</button>
