@@ -60,6 +60,7 @@ span {
     }
 }
 
+//修改信息的弹框
 .bulletbox {
     position: fixed;
     top: 0;
@@ -156,6 +157,31 @@ h2 {
 
 }
 
+//提示弹窗
+#bullet-tip-box {
+    position: fixed;
+    top: -70px;
+    left: 777px;
+    width: 200px;
+    height: 70px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px rgba(255, 255, 255, .3);
+    border-radius: 8px;
+    z-index: 3000;
+    opacity: 0;
+    transition: all .4s;
+    color: #000;
+
+    p {
+        height: 70px;
+        line-height: 70px;
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
+
+//核心模块
 .box {
     display: flex;
     position: relative;

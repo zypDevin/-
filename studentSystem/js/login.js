@@ -35,14 +35,32 @@ function creatBuble() {
 setInterval(function () {
     creatBuble()
 }, 200)
-//邮箱的正则
 
+//各种提示弹框
+function bulletTipShow(tip, color) {
+    const bulletTip = document.getElementById('bullet-tip-box')
+    const tipContent = document.getElementById('tip-content')
+    tipContent.innerHTML = `${tip}`
+    tipContent.style.backgroundColor = `${color}`
+    bulletTip.style.top = 50 + 'px'
+    bulletTip.style.opacity = 1
+    let i = 3
+    const timeId = setInterval(function () {
+        i--
+        if (i === 0) {
+            clearInterval(timeId)
+            bulletTip.style.top = -70 + 'px'
+            bulletTip.style.opacity = 0
+        }
+    }, 1000)
+}
+//邮箱的正则
 email_log.addEventListener('change', veriftyEmailLogin)
 
 //登录邮箱输入的判断
+const EmailReg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
 function veriftyEmailLogin() {
-    const reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
-    if (!reg.test(email_log.value)) {
+    if (!EmailReg.test(email_log.value)) {
         document.querySelector('.email-tip').innerHTML = '输入的邮箱有误'
         return false
     }
@@ -87,13 +105,14 @@ login.addEventListener('click', function () {
         dataType: "json",
         success: function (res) {
             if (res.code === -1006) {
-                alert("用户未注册！")
+                bulletTipShow("邮箱未注册！", "rgb(255, 237, 237)")
                 return
             }
             // console.log(res)
             localStorage.setItem('token', res.token)
             localStorage.setItem('username', res.userInfo.userName)
             localStorage.setItem('id', res.userInfo.id)
+            localStorage.setItem('email', res.userInfo.email)
             // 判断用户名是否为空，如果是则是第一次登录，则会先显示完善个人信息
             if (res.userInfo.userName === null && res.userInfo.address === null && res.userInfo.hight === null) {
                 console.log(res)
@@ -107,7 +126,7 @@ login.addEventListener('click', function () {
         },
         error: function (err) {
             console.log(err)
-            alert('请求超时！')
+            bulletTipShow("请求超时！", "rgb(255, 237, 237)")
             window.location.href = "http://127.0.0.1:5500/login.html"
         }
     })
@@ -122,7 +141,8 @@ function sendCode() {
 
     //1.1 点击事件
     getCode.addEventListener('click', function () {
-        if (email_reg.value !== '') {
+        console.log(EmailReg.test(email_reg.value))
+        if (email_reg.value !== '' && EmailReg.test(email_reg.value)) {
             if (flag) {
                 flag = false
                 let i = 60
@@ -158,7 +178,7 @@ function sendCode() {
                 })
             }
         } else {
-            alert('邮箱输入有误！')
+            bulletTipShow("邮箱错误,请重新输入!", "rgb(255, 237, 237)")
         }
     })
 
@@ -168,11 +188,13 @@ sendCode()
 
 //功能弹框显示的函数
 const bulletBox = document.querySelector('.bulletbox')
+const bulletMask = document.getElementById('mask')
 function bulletShow() {
     bulletBox.style.display = 'block'
-    document.getElementById('mask').style.width = document.body.clientWidth + "px"
-    document.getElementById('mask').style.height = document.body.clientHeight + "px"
-    document.getElementById('mask').classList.add('bulletmask')
+    bulletMask.style.display = 'block'
+    bulletMask.style.width = document.body.clientWidth + "px"
+    bulletMask.style.height = document.body.clientHeight + "px"
+    bulletMask.classList.add('bulletmask')
 }
 //注册业务
 const register_btn = document.querySelector('#register-btn')
@@ -193,12 +215,11 @@ register_btn.addEventListener('click', function (e) {
         },
         success: function (res) {
             console.log(res)
-
-
             let i = 3
+            bulletTipShow("注册成功!", "rgba(255, 255, 255, .8)")
             const timer = setInterval(function () {
                 i--
-                register_btn.innerHTML = '注册成功！'
+                // register_btn.innerHTML = '注册成功！'
                 if (i === 0) {
                     clearInterval(timer)
                     register_btn.innerHTML = '注册'
@@ -241,5 +262,6 @@ confirmButton.addEventListener('click', function () {
 const closeButton = document.querySelector('#close')
 closeButton.addEventListener('click', function () {
     bulletBox.style.display = 'none'
+    bulletMask.style.display = 'none'
 })
 

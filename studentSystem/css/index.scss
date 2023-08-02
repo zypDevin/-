@@ -29,6 +29,359 @@ body {
     color: antiquewhite !important;
 }
 
+//修改弹窗
+.bulletbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    width: 500px;
+    height: 600px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, .3);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .3);
+    margin: 200px auto;
+    z-index: 9999;
+    color: #000;
+
+    h2 {
+        text-align: center;
+        padding-top: 50px;
+        padding-left: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .bulletmiddle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    .common {
+        display: flex;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .common input {
+        width: 200px;
+        height: 40px;
+        padding-left: 10px;
+        color: #000;
+        border: 1px solid #ccc;
+        outline: none;
+        border-radius: 8px;
+    }
+
+
+
+    .common p {
+        width: 100px;
+        padding-right: 10px;
+        height: 40px;
+        line-height: 40px;
+        text-align: right;
+    }
+
+
+
+    .bulletsex select {
+        width: 200px;
+        height: 40px;
+        color: #000;
+        border: 1px solid #ccc;
+        outline: none;
+        border-radius: 8px;
+    }
+
+    .footer-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+
+
+    }
+
+    .footer-btn button {
+        width: 100px;
+        height: 40px;
+        margin-left: 20px;
+        cursor: pointer;
+
+    }
+
+
+}
+
+//遮影
+.bulletmask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2031;
+    background: rgba(0, 0, 0, .3);
+}
+
+
+//提示弹窗
+#bullet-tip-box {
+    position: fixed;
+    top: -70px;
+    left: 760px;
+    width: 220px;
+    height: 70px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px rgba(255, 255, 255, .3);
+    border-radius: 8px;
+    z-index: 3000;
+    opacity: 0;
+    transition: all .4s;
+    color: #000;
+
+    p {
+        height: 70px;
+        line-height: 70px;
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
+//第三种弹框
+#deletebullet {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: -220px;
+    left: 620px;
+    width: 450px;
+    height: 220px;
+    background: rgba(255, 255, 255, .9);
+    z-index: 3000;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px rgba(255, 255, 255, .3);
+    border-radius: 8px;
+    transition: all .5s;
+    opacity: 0;
+    color: #000;
+
+    .deletebullet-header {
+        flex: 1;
+        font-size: 20px;
+        padding: 5px 8px 0 5px;
+
+        .header-font {
+            display: flex;
+            justify-content: space-between;
+            cursor: default;
+
+            i {
+                transition: all .3s;
+                cursor: pointer;
+
+                &:hover {
+                    color: #721c24;
+                }
+            }
+
+            i:nth-child(1) {
+                cursor: default;
+                color: #628cef;
+            }
+
+
+        }
+
+
+
+
+
+    }
+
+    .delete-content {
+        flex: 2;
+        font-size: 22px;
+        letter-spacing: 4px;
+        text-indent: 44px;
+        padding: 0 10px;
+        justify-self: center;
+        cursor: default;
+    }
+
+    .footer-deletebtn {
+        flex: 1;
+        align-self: flex-end;
+        padding-right: 40px;
+        cursor: default;
+
+        button {
+            width: 60px;
+            height: 40px;
+            border: none;
+            outline: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all .3s;
+
+            &:hover {
+                background: #721c24;
+            }
+
+            &:nth-child(1) {
+                background: #628cef;
+
+                &:hover {
+                    background: #721c24;
+                }
+            }
+        }
+
+    }
+}
+
+//修改密码的弹框
+#modifypassword {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: -610px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 200px auto;
+    width: 500px;
+    height: 400px;
+    background: rgba(255, 255, 255, .9);
+    border: 1px solid rgba(0, 0, 0, .3);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .3);
+    border-radius: 8px;
+    z-index: 8888;
+    transition: all .3s;
+
+    .modifypassword-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+        color: #000;
+        font-size: 24px;
+
+        p {
+
+            font-weight: 700;
+            cursor: default;
+        }
+
+        i {
+            transition: all .3s;
+            cursor: pointer;
+
+            &:hover {
+                color: #721c24;
+            }
+        }
+    }
+
+    .modifypassword-middle-code {
+        display: flex;
+        margin-top: 50px;
+        justify-content: center;
+        // text-align: center;
+        align-items: center;
+
+
+        p {
+            width: 100px;
+            font-size: 20px;
+        }
+
+        input {
+            width: 70px;
+            height: 40px;
+            padding-left: 10px;
+            color: #000;
+            border: 1px solid #ccc;
+            outline: none;
+            border-radius: 8px;
+            margin-right: 10px;
+        }
+
+        button {
+            width: 120px;
+            // padding: 0 20px;
+            height: 40px;
+            border: none;
+            outline: none;
+            background: #628cef;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all .3s;
+
+            &:hover {
+                opacity: .6;
+            }
+        }
+    }
+
+    .modifypassword-middle-newpwd {
+        display: flex;
+        margin-top: 50px;
+        justify-content: center;
+        // text-align: center;
+        align-items: center;
+
+        p {
+            width: 100px;
+            font-size: 20px;
+        }
+
+        input {
+            width: 200px;
+            height: 40px;
+            padding-left: 10px;
+            color: #000;
+            border: 1px solid #ccc;
+            outline: none;
+            border-radius: 8px;
+        }
+    }
+
+    .modifypassword-footer {
+        display: flex;
+        justify-content: space-around;
+        margin: 50px 50px;
+
+        button {
+            width: 80px;
+            height: 50px;
+            border: none;
+            outline: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all .3s;
+
+            &:hover {
+                background: #721c24;
+            }
+
+            &:nth-child(1) {
+                background: #628cef;
+
+                &:hover {
+                    background: #721c24;
+                }
+            }
+        }
+    }
+
+}
+
 .nav-header {
     display: flex;
     justify-content: center;
@@ -184,7 +537,7 @@ body {
     .tab-nav {
         position: relative;
         width: 0;
-        height: 100vh;
+        height: 900px;
         text-align: center;
         margin-top: 20px;
         background: rgba(142, 206, 234, .6);
@@ -195,14 +548,15 @@ body {
         box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
         transition: all .3s;
 
-
         .call {
+
             position: absolute;
             font-size: 30px;
-            top: 45px;
-            left: 0;
+            top: 0px;
+            left: 0px;
             cursor: pointer;
             transition: all .3s;
+            z-index: 1021;
 
             &::after {
                 display: block;
@@ -235,6 +589,7 @@ body {
             opacity: 0;
 
             ul {
+                height: 100%;
                 display: flex;
                 flex-direction: column;
                 margin: 200px 0;
@@ -244,6 +599,7 @@ body {
 
                 li {
                     width: 100%;
+                    height: 40px;
                     border-bottom: 1px solid #ccc;
                     margin-bottom: 20px;
                     padding-left: 20px;
@@ -308,8 +664,9 @@ body {
 
         //查看学生信息
         .check-page {
+            position: relative;
             width: 1400px;
-            height: 750px;
+            height: 900px;
             margin: 20px auto;
             border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, .6);
@@ -331,7 +688,6 @@ body {
 
             .statistics {
                 display: flex;
-                flex-direction: row;
                 justify-content: space-between;
                 height: 48px;
                 font-size: 20px;
@@ -340,31 +696,38 @@ body {
                 letter-spacing: 5px;
                 color: #000;
 
+                input {
+                    height: 30px;
+                    border: none;
+                    outline: none;
+                    border-radius: 8px;
+                    padding-left: 10px;
+                }
+
+                button {
+                    width: 60px;
+                    height: 30px;
+                    outline: none;
+                    border: none;
+                    background: rgb(135, 206, 235);
+                    border-radius: 4px;
+                    cursor: pointer;
+                    transition: all .2s;
+
+                    &:hover {
+                        background: rgba(135, 206, 235, 0.6)
+                    }
+                }
+
+                p {
+                    align-self: flex-end;
+                }
+
                 p span {
                     color: #9b6757;
                 }
 
-                .change-page {
-                    margin-right: 800px;
 
-                    button {
-
-                        width: 50px;
-                        height: 48px;
-                        text-align: center;
-                        outline: none;
-                        border: none;
-                        border-radius: 8px;
-                        background: #b8daff;
-                        color: #000;
-                        transition: all .3s;
-                        font-size: 14px;
-                        cursor: pointer;
-                        &:hover {
-                            opacity: 0.8;
-                        }
-                    }
-                }
             }
 
             table {
@@ -422,196 +785,371 @@ body {
                 }
             }
 
-
-        }
-
-        //修改个人信息
-        .modify-page {
-            position: relative;
-            width: 1400px;
-            height: 200px;
-            margin: 20px auto;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, .6);
-            box-shadow: 4px 4px 3px rgba(0, 0, 0, .1);
-            display: none;
-            background: rgb(239, 237, 235);
-
-            .ac-img {
-                position: relative;
-
-                img {
-                    position: absolute;
-                    top: -80px;
-                    right: 0;
-                    width: 100px;
-                    height: 100px;
-                }
-            }
-
-            p {
+            .page-changing-module {
                 position: absolute;
-                top: -60px;
-                left: 550px;
-                font-size: 35px;
+                bottom: 20px;
+                left: 525px;
+                display: flex;
+                justify-content: space-around;
+                width: 300px;
+                align-items: center;
                 letter-spacing: 5px;
-            }
+                color: #000;
 
-            .user-info {
-                width: 100%;
-                margin: 50px auto;
-                text-align: center;
-                color: #333;
+                .change-page {
 
-                input,
-                select {
-                    width: 100px;
-                    height: 32px;
-                    outline: none;
-                    border: 1px solid #b8daff;
-                    border-radius: 5px;
-                    padding-left: 5px;
-                    margin-right: 15px;
-                }
 
-                .modify {
-                    width: 80px;
-                    height: 32px;
-                    font-size: 16px;
-                    color: #721c24;
-                    background-color: rgb(184, 218, 255);
-                    outline: none;
-                    border: 0;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    transition: all .3s;
+                    button {
 
-                    &:hover {
-                        background-color: rgba(184, 218, 255, 0.6);
+                        width: 50px;
+                        height: 40px;
+                        text-align: center;
+                        outline: none;
+                        border: none;
+                        border-radius: 8px;
+                        background: #b8daff;
+                        color: #000;
+                        transition: all .3s;
+                        font-size: 14px;
+                        cursor: pointer;
+
+                        &:hover {
+                            opacity: 0.8;
+                        }
                     }
                 }
 
-                .address {
-                    width: 200px;
-                }
-            }
+                .backAll {
+                    // align-self: flex-end;
+                    position: absolute;
+                    top: 0;
+                    //能看见的时候是-520 ，看不见的时候-820
+                    right: -820px;
+                    opacity: 0;
+                    transition: all .4s;
 
-            .modify-tip-ok {
-                text-align: center;
-                color: #793b18;
-                font-size: 30px;
-                cursor: default;
-                opacity: 0;
-                transition: all .2s;
+                    .backAllbtn {
+                        width: 100px;
+                        height: 40px;
+                        background: #b8daff;
+                        text-align: center;
+                        outline: none;
+                        border: none;
+                        border-radius: 8px;
+                        background: #b8daff;
+                        color: #000;
+                        transition: all .4s;
+                        font-size: 14px;
+                        cursor: pointer;
+
+                        &:hover {
+                            opacity: 0.8;
+                        }
+                    }
+                }
             }
 
 
 
         }
 
-        //删除
-        .check-delete-page {
-            position: relative;
+        //个人中心
+        .personalcenter {
             width: 1400px;
-            height: 200px;
+            height: 900px;
             margin: 20px auto;
             border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, .6);
             box-shadow: 4px 4px 3px rgba(0, 0, 0, .1);
             display: none;
-            background: rgb(239, 237, 235);
+            background: antiquewhite;
+            color: #000;
 
-            .ac-img {
-                position: relative;
-
-                img {
-                    position: absolute;
-                    top: -80px;
-                    right: 0;
-                    width: 100px;
-                    height: 100px;
-                }
-            }
-
-            p {
-                position: absolute;
-                top: -60px;
-                left: 600px;
-                font-size: 35px;
-                letter-spacing: 5px;
-            }
-
-            .delete-check-id {
-                color: #000;
+            h1 {
+                text-align: center;
+                font-size: 40px;
                 margin-top: 20px;
-                text-align: center;
+                border-bottom: 2px solid #ccc;
+                padding-bottom: 20px;
+            }
 
-                input {
-                    width: 100px;
-                    height: 32px;
-                    outline: none;
-                    border: 1px solid #b8daff;
-                    border-radius: 5px;
+            .personal-table {
+                border-collapse: collapse;
+                margin: 150px auto;
 
-                    margin-left: 20px;
+
+                td {
+                    // text-align: start;
+                    border: 1px solid;
+                    width: 600px;
+                    height: 100px;
+                    // padding-left: 10px;
+
+                    div {
+
+                        display: flex;
+                        align-items: center;
+                        letter-spacing: 4px;
+                        cursor: default;
+
+                        p {
+                            width: 200px;
+                            height: 100px;
+                            text-align: center;
+                            line-height: 100px;
+                            padding-left: 5px;
+                            font-size: 27px;
+                        }
+
+                        span {
+                            display: block;
+                            width: 100%;
+                            height: 100px;
+                            line-height: 100px;
+                            text-align: center;
+                            font-size: 25px;
+                        }
+
+                        input {
+                            width: 80%;
+                            height: 80px;
+                            padding-left: 10px;
+                            color: #000;
+                            border: none;
+                            font-size: 24px;
+                            // border: 1px solid #ccc;
+                            outline: none;
+                            border-radius: 8px;
+                        }
+
+                        select,
+                        option {
+                            width: 80%;
+                            height: 80px;
+                            color: #000;
+                            border: none;
+                            outline: none;
+                            font-size: 24px;
+                            border-radius: 8px;
+                        }
+                    }
+
                 }
+            }
 
-                [name=check-delete-id] {
-                    padding-left: 10px;
-                }
+            .personalButton {
+                display: flex;
+                justify-content: space-around;
 
-                [type="button"] {
-                    width: 80px;
-                    height: 32px;
-                    font-size: 16px;
-                    color: #721c24;
-                    background-color: rgb(184, 218, 255);
+                button {
+                    width: 200px;
+                    height: 80px;
+                    background: #b8daff;
+                    text-align: center;
                     outline: none;
-                    border: 0;
-                    border-radius: 5px;
+                    border: none;
+                    border-radius: 8px;
+                    background: #b8daff;
+                    color: #000;
+                    transition: all .4s;
+                    font-size: 28px;
                     cursor: pointer;
-                    transition: all .3s;
 
                     &:hover {
-                        background-color: rgba(184, 218, 255, 0.6);
+                        opacity: 0.8;
                     }
                 }
             }
-
-            .delete-check {
-                color: #000;
-                opacity: 0;
-
-                h2 {
-                    margin-top: 20px;
-                    text-align: center;
-                    font-size: 24px;
-                }
-
-                ul {
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-around;
-                    align-items: center;
-                    margin-top: 10px;
-                    font-size: 20px;
-                }
-            }
-
-            .delete-tip-ok {
-                text-align: center;
-                color: #793b18;
-                font-size: 30px;
-                cursor: default;
-                opacity: 0;
-                transition: all .2s;
-            }
         }
 
-        .active {
-            display: block !important;
-        }
+        // //修改个人信息
+        // .modify-page {
+        //     position: relative;
+        //     width: 1400px;
+        //     height: 200px;
+        //     margin: 20px auto;
+        //     border-radius: 8px;
+        //     border: 1px solid rgba(255, 255, 255, .6);
+        //     box-shadow: 4px 4px 3px rgba(0, 0, 0, .1);
+        //     display: none;
+        //     background: rgb(239, 237, 235);
+
+        //     .ac-img {
+        //         position: relative;
+
+        //         img {
+        //             position: absolute;
+        //             top: -80px;
+        //             right: 0;
+        //             width: 100px;
+        //             height: 100px;
+        //         }
+        //     }
+
+        //     p {
+        //         position: absolute;
+        //         top: -60px;
+        //         left: 550px;
+        //         font-size: 35px;
+        //         letter-spacing: 5px;
+        //     }
+
+        //     .user-info {
+        //         width: 100%;
+        //         margin: 50px auto;
+        //         text-align: center;
+        //         color: #333;
+
+        //         input,
+        //         select {
+        //             width: 100px;
+        //             height: 32px;
+        //             outline: none;
+        //             border: 1px solid #b8daff;
+        //             border-radius: 5px;
+        //             padding-left: 5px;
+        //             margin-right: 15px;
+        //         }
+
+        //         .modify {
+        //             width: 80px;
+        //             height: 32px;
+        //             font-size: 16px;
+        //             color: #721c24;
+        //             background-color: rgb(184, 218, 255);
+        //             outline: none;
+        //             border: 0;
+        //             border-radius: 5px;
+        //             cursor: pointer;
+        //             transition: all .3s;
+
+        //             &:hover {
+        //                 background-color: rgba(184, 218, 255, 0.6);
+        //             }
+        //         }
+
+        //         .address {
+        //             width: 200px;
+        //         }
+        //     }
+
+        //     .modify-tip-ok {
+        //         text-align: center;
+        //         color: #793b18;
+        //         font-size: 30px;
+        //         cursor: default;
+        //         opacity: 0;
+        //         transition: all .2s;
+        //     }
+
+
+
+        // }
+
+        // //删除
+        // .check-delete-page {
+        //     position: relative;
+        //     width: 1400px;
+        //     height: 200px;
+        //     margin: 20px auto;
+        //     border-radius: 8px;
+        //     border: 1px solid rgba(255, 255, 255, .6);
+        //     box-shadow: 4px 4px 3px rgba(0, 0, 0, .1);
+        //     display: none;
+        //     background: rgb(239, 237, 235);
+
+        //     .ac-img {
+        //         position: relative;
+
+        //         img {
+        //             position: absolute;
+        //             top: -80px;
+        //             right: 0;
+        //             width: 100px;
+        //             height: 100px;
+        //         }
+        //     }
+
+        //     p {
+        //         position: absolute;
+        //         top: -60px;
+        //         left: 600px;
+        //         font-size: 35px;
+        //         letter-spacing: 5px;
+        //     }
+
+        //     .delete-check-id {
+        //         color: #000;
+        //         margin-top: 20px;
+        //         text-align: center;
+
+        //         input {
+        //             width: 100px;
+        //             height: 32px;
+        //             outline: none;
+        //             border: 1px solid #b8daff;
+        //             border-radius: 5px;
+
+        //             margin-left: 20px;
+        //         }
+
+        //         [name=check-delete-id] {
+        //             padding-left: 10px;
+        //         }
+
+        //         [type="button"] {
+        //             width: 80px;
+        //             height: 32px;
+        //             font-size: 16px;
+        //             color: #721c24;
+        //             background-color: rgb(184, 218, 255);
+        //             outline: none;
+        //             border: 0;
+        //             border-radius: 5px;
+        //             cursor: pointer;
+        //             transition: all .3s;
+
+        //             &:hover {
+        //                 background-color: rgba(184, 218, 255, 0.6);
+        //             }
+        //         }
+        //     }
+
+        //     .delete-check {
+        //         color: #000;
+        //         opacity: 0;
+
+        //         h2 {
+        //             margin-top: 20px;
+        //             text-align: center;
+        //             font-size: 24px;
+        //         }
+
+        //         ul {
+        //             width: 100%;
+        //             display: flex;
+        //             justify-content: space-around;
+        //             align-items: center;
+        //             margin-top: 10px;
+        //             font-size: 20px;
+        //         }
+        //     }
+
+        //     .delete-tip-ok {
+        //         text-align: center;
+        //         color: #793b18;
+        //         font-size: 30px;
+        //         cursor: default;
+        //         opacity: 0;
+        //         transition: all .2s;
+        //     }
+        // }
+
+
     }
 
+    .active {
+        display: block !important;
+    }
 
 }

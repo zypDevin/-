@@ -11,6 +11,77 @@
 </head>
 
 <body>
+    <!-- 提示框弹窗 -->
+    <div id="bullet-tip-box">
+        <p id="tip-content"></p>
+    </div>
+    <!-- 修改信息框的遮影 -->
+    <div id="mask" class="bulletmask"></div>
+    <!-- 修改信息框 -->
+    <div class="bulletbox">
+        <h2>修改信息</h2>
+        <div class="bulletmiddle">
+            <div class="bulletusername common">
+                <p>用户名：</p><input required type="text" placeholder="用户名" name="bulletusername" autocomplete="off">
+            </div>
+            <div class="bulletage common">
+                <p>年龄：</p><input required type="text" placeholder="年龄" name="bulletage" autocomplete="off">
+            </div>
+            <div class="bulletsex common">
+                <p>性别：</p><select name="bulletsex" id="">
+                    <option value="请选择性别">请选择性别</option>
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
+            </div>
+            <div class="bullethight common">
+                <p>身高(米)：</p><input required type="text" placeholder="身高" name="bullethight" autocomplete="off">
+            </div>
+            <div class="bulletaddress common">
+                <p>地址：</p><input required type="text" placeholder="地址" name="bulletaddress" autocomplete="off">
+            </div>
+        </div>
+        <div class="footer-btn">
+            <button id="confirm">确定</button>
+            <button id="close" onclick="closeBullet()">取消</button>
+        </div>
+    </div>
+    <!-- 删除信息的弹框 -->
+    <div id="deletebullet">
+        <div class="deletebullet-header">
+            <div class="header-font">
+                <i class="fa-sharp fa-solid fa-circle-exclamation"></i><span>提示</span>
+                <i class="fa-sharp fa-solid fa-xmark" onclick="deleteBulletHidden()"></i>
+            </div>
+        </div>
+        <p class="delete-content">确定后该用户所有信息将被删除，请慎重删除。</p>
+        <div class="footer-deletebtn">
+            <button class="delete-confirm-btn">确定</button>
+            <button class="delete-cancel-btn" onclick="deleteBulletHidden()">取消</button>
+        </div>
+    </div>
+    <!-- 修改密码的弹框 -->
+    <div id="modifypassword">
+        <div class="modifypassword-header">
+            <p>修改密码</p>
+            <i class="fa-sharp fa-solid fa-xmark" onclick="modifyPwdBulletHidden()"></i>
+        </div>
+        <div class="modifypassword-middle-code">
+            <p>验证码：</p>
+            <input type="text" name="sendcode-modifypwd-input">
+            <button class="sendcode-modifypwd" id="getCode">发送验证码</button>
+        </div>
+        <div class="modifypassword-middle-newpwd">
+            <p>新密码：</p>
+            <input type="text" name="modifypassword-input">
+
+        </div>
+        <div class="modifypassword-footer">
+            <button class="newpwdConfirm">确定</button>
+            <button class="newpwdClose" onclick="modifyPwdBulletHidden()">取消</button>
+        </div>
+    </div>
+    <!-- 页面布置 -->
     <div>
         <!-- header -->
         <div class="nav-header">
@@ -23,7 +94,7 @@
             <div class="menu">
                 <ul>
                     <li>
-                        <p class="change-name">用户名</p>
+                        <p class="change-name personcenterbtn item" data-id="4" onclick="togglePersonCenter()">用户名</p>
                     </li>
                     <li>|</li>
                     <li>
@@ -59,9 +130,9 @@
                     <ul id="tab-btn">
                         <li data-id="0">首页</li>
                         <li data-id="1" class="checkall">全部用户信息</li>
-                        <li data-id="2">修改个人信息</li>
-                        <li data-id="3">查询删除信息</li>
-                        <li data-id="4">点我啥都没有</li>
+                        <li data-id="2">点我啥都没有</li>
+                        <li data-id="3">点我啥都没有</li>
+                        <li data-id="4" class="personcenterbtn" onclick="togglePersonCenter()">个人中心</li>
 
                     </ul>
                 </div>
@@ -88,23 +159,28 @@
                         学生管理系统
                     </div>
                     <div class="statistics">
-                        <div class="paging"><span id="offset">1</span> / <span id="allpages">2</span> 页</div>
-                        <div class="change-page"><button class="up-page">上一页</button>
-                            <button class="down-page">下一页</button>
+                        <!-- 查询  id查询和用户名查询 -->
+                        <div class="check-way-id">
+                            ID：<input type="text" name="id" autocomplete="off" placeholder="请输入查询的id">
+                            <button class="check-id-btn">查询</button>
+                        </div>
+                        <div class="check-way-id">
+                            用户名：<input type="text" name="username" autocomplete="off" placeholder="请输入查询的用户名">
+                            <button class="check-username-btn">查询</button>
                         </div>
                         <p>共有数据<span class="count">0</span>条</p>
                     </div>
                     <table>
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>序号</th>
                                 <th>用户名</th>
                                 <th>年龄</th>
                                 <th>性别</th>
                                 <th>身高(米)</th>
                                 <th>地址</th>
                                 <th>录入时间</th>
-
+                                <th>操作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -117,17 +193,25 @@
                                 <td>何苦元</td>
                                 <td>2023-07-25T13:14:15.000Z</td>
                                 <td>
+                                    <button>修改</button>
                                     <button>删除</button>
                                 </td>
                             </tr> -->
                         </tbody>
-
                     </table>
+                    <div class="page-changing-module">
+                        <div class="change-page"><button class="up-page">上一页</button></div>
+                        <div class="paging"><span id="offset">1</span> / <span id="allpages">2</span> 页</div>
+                        <div class="change-page"><button class="down-page">下一页</button></div>
+                        <div class="backAll">
+                            <button class="backAllbtn" onclick="backAllInfo()">返回所有信息</button>
+                        </div>
+                    </div>
 
                 </div>
-                <!-- 修改个人信息 -->
-                <div class="item modify-page" id="first-modify">
-                    <div class="ac-img"><img src="./images/ac.gif" alt=""></div>
+                <!-- 修改个人信息 (废弃)-->
+                <div class="item" id="first-modify">
+                    <!-- <div class="ac-img"><img src="./images/ac.gif" alt=""></div>
                     <p>输入你要修改的信息</p>
                     <div class="user-info">
                         ID：<input type="text" name="id" autocomplete="off">
@@ -142,11 +226,11 @@
                         住址：<input type="text" class="address" name="address" autocomplete="off">
                         <input type="submit" class="modify" autocomplete="off">
                     </div>
-                    <div class="modify-tip-ok"></div>
+                    <div class="modify-tip-ok"></div> -->
                 </div>
-                <!-- 查看和删除用户信息 -->
-                <div class="item check-delete-page">
-                    <div class="ac-img"><img src="./images/ac.gif" alt=""></div>
+                <!-- 查看和删除用户信息 (废弃)-->
+                <div class="item">
+                    <!--    <div class="ac-img"><img src="./images/ac.gif" alt=""></div>
                     <p>输入用户ID</p>
                     <div class="delete-check-id">ID: <input type="text" name="check-delete-id" autocomplete="off">
                         <input type="button" value="查询" name="check-btn">
@@ -159,9 +243,66 @@
 
                         </ul>
                     </div>
-                    <div class="delete-tip-ok">删除成功!!!</div>
+                    <div class="delete-tip-ok">删除成功!!!</div>-->
                 </div>
-                <div class="item"></div>
+                <!-- 个人中心 -->
+                <div class="item personalcenter">
+                    <h1>个人中心</h1>
+                    <table class="personal-table">
+                        <tr>
+                            <td>
+                                <div class="personalUsername">
+                                    <p>用户名:</p><span></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="personalID">
+                                    <p>ID:</p><span></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="personalAge">
+                                    <p>年龄:</p><span></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="personalSex">
+                                    <p>性别:</p><span></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="personalHight">
+                                    <p>身高(米):</p><span></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="pesonalTime">
+                                    <p>创建时间:</p><span></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="personalAddress">
+                                    <p>地址:</p><span></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="personalEmail">
+                                    <p>邮箱：</p><span></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="personalButton">
+                        <button class="editInfo">编辑</button>
+                        <button class="modifyPwd">修改密码</button>
+                    </div>
+                </div>
 
             </div>
 

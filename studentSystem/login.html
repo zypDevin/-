@@ -10,15 +10,21 @@
 </head>
 
 <body>
+     <!-- 提示框弹窗 -->
+     <div id="bullet-tip-box">
+        <p id="tip-content"></p>
+    </div>
+    <!-- 遮影层 -->
     <div id="mask"></div>
+    <!-- 完善个人信息的弹框 -->
     <div class="bulletbox">
         <h2>完善个人信息</h2>
         <div class="bulletmiddle">
             <div class="bulletusername common">
-                <p>用户名：</p><input required type="text" placeholder="用户名" name="bulletusername">
+                <p>用户名：</p><input required type="text" placeholder="用户名" name="bulletusername" autocomplete="off">
             </div>
             <div class="bulletage common">
-                <p>年龄：</p><input required type="text" placeholder="年龄" name="bulletage">
+                <p>年龄：</p><input required type="text" placeholder="年龄" name="bulletage" autocomplete="off">
             </div>
             <div class="bulletsex common">
                 <p>性别：</p><select name="bulletsex" id="">
@@ -28,10 +34,10 @@
                 </select>
             </div>
             <div class="bullethight common">
-                <p>身高(米)：</p><input required type="text" placeholder="身高" name="bullethight">
+                <p>身高(米)：</p><input required type="text" placeholder="身高" name="bullethight" autocomplete="off">
             </div>
             <div class="bulletaddress common">
-                <p>地址：</p><input required type="text" placeholder="地址" name="bulletaddress">
+                <p>地址：</p><input required type="text" placeholder="地址" name="bulletaddress" autocomplete="off">
             </div>
         </div>
         <div class="footer-btn">

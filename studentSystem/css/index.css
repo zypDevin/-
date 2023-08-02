@@ -30,6 +30,330 @@ body {
   color: antiquewhite !important;
 }
 
+.bulletbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  width: 500px;
+  height: 600px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+  margin: 200px auto;
+  z-index: 9999;
+  color: #000;
+}
+
+.bulletbox h2 {
+  text-align: center;
+  padding-top: 50px;
+  padding-left: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.bulletbox .bulletmiddle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.bulletbox .common {
+  display: flex;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.bulletbox .common input {
+  width: 200px;
+  height: 40px;
+  padding-left: 10px;
+  color: #000;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 8px;
+}
+
+.bulletbox .common p {
+  width: 100px;
+  padding-right: 10px;
+  height: 40px;
+  line-height: 40px;
+  text-align: right;
+}
+
+.bulletbox .bulletsex select {
+  width: 200px;
+  height: 40px;
+  color: #000;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 8px;
+}
+
+.bulletbox .footer-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.bulletbox .footer-btn button {
+  width: 100px;
+  height: 40px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.bulletmask {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2031;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+#bullet-tip-box {
+  position: fixed;
+  top: -70px;
+  left: 760px;
+  width: 220px;
+  height: 70px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  z-index: 3000;
+  opacity: 0;
+  transition: all .4s;
+  color: #000;
+}
+
+#bullet-tip-box p {
+  height: 70px;
+  line-height: 70px;
+  font-size: 20px;
+  text-align: center;
+}
+
+#deletebullet {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: -220px;
+  left: 620px;
+  width: 450px;
+  height: 220px;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 3000;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  transition: all .5s;
+  opacity: 0;
+  color: #000;
+}
+
+#deletebullet .deletebullet-header {
+  flex: 1;
+  font-size: 20px;
+  padding: 5px 8px 0 5px;
+}
+
+#deletebullet .deletebullet-header .header-font {
+  display: flex;
+  justify-content: space-between;
+  cursor: default;
+}
+
+#deletebullet .deletebullet-header .header-font i {
+  transition: all .3s;
+  cursor: pointer;
+}
+
+#deletebullet .deletebullet-header .header-font i:hover {
+  color: #721c24;
+}
+
+#deletebullet .deletebullet-header .header-font i:nth-child(1) {
+  cursor: default;
+  color: #628cef;
+}
+
+#deletebullet .delete-content {
+  flex: 2;
+  font-size: 22px;
+  letter-spacing: 4px;
+  text-indent: 44px;
+  padding: 0 10px;
+  justify-self: center;
+  cursor: default;
+}
+
+#deletebullet .footer-deletebtn {
+  flex: 1;
+  align-self: flex-end;
+  padding-right: 40px;
+  cursor: default;
+}
+
+#deletebullet .footer-deletebtn button {
+  width: 60px;
+  height: 40px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+#deletebullet .footer-deletebtn button:hover {
+  background: #721c24;
+}
+
+#deletebullet .footer-deletebtn button:nth-child(1) {
+  background: #628cef;
+}
+
+#deletebullet .footer-deletebtn button:nth-child(1):hover {
+  background: #721c24;
+}
+
+#modifypassword {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: -610px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 200px auto;
+  width: 500px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  z-index: 8888;
+  transition: all .3s;
+}
+
+#modifypassword .modifypassword-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+  font-size: 24px;
+}
+
+#modifypassword .modifypassword-header p {
+  font-weight: 700;
+  cursor: default;
+}
+
+#modifypassword .modifypassword-header i {
+  transition: all .3s;
+  cursor: pointer;
+}
+
+#modifypassword .modifypassword-header i:hover {
+  color: #721c24;
+}
+
+#modifypassword .modifypassword-middle-code {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+#modifypassword .modifypassword-middle-code p {
+  width: 100px;
+  font-size: 20px;
+}
+
+#modifypassword .modifypassword-middle-code input {
+  width: 70px;
+  height: 40px;
+  padding-left: 10px;
+  color: #000;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+#modifypassword .modifypassword-middle-code button {
+  width: 120px;
+  height: 40px;
+  border: none;
+  outline: none;
+  background: #628cef;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+#modifypassword .modifypassword-middle-code button:hover {
+  opacity: .6;
+}
+
+#modifypassword .modifypassword-middle-newpwd {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+#modifypassword .modifypassword-middle-newpwd p {
+  width: 100px;
+  font-size: 20px;
+}
+
+#modifypassword .modifypassword-middle-newpwd input {
+  width: 200px;
+  height: 40px;
+  padding-left: 10px;
+  color: #000;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 8px;
+}
+
+#modifypassword .modifypassword-footer {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 50px;
+}
+
+#modifypassword .modifypassword-footer button {
+  width: 80px;
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+#modifypassword .modifypassword-footer button:hover {
+  background: #721c24;
+}
+
+#modifypassword .modifypassword-footer button:nth-child(1) {
+  background: #628cef;
+}
+
+#modifypassword .modifypassword-footer button:nth-child(1):hover {
+  background: #721c24;
+}
+
 .nav-header {
   display: flex;
   justify-content: center;
@@ -176,7 +500,7 @@ body {
 .middle .tab-nav {
   position: relative;
   width: 0;
-  height: 100vh;
+  height: 900px;
   text-align: center;
   margin-top: 20px;
   background: rgba(142, 206, 234, 0.6);
@@ -191,10 +515,11 @@ body {
 .middle .tab-nav .call {
   position: absolute;
   font-size: 30px;
-  top: 45px;
-  left: 0;
+  top: 0px;
+  left: 0px;
   cursor: pointer;
   transition: all .3s;
+  z-index: 1021;
 }
 
 .middle .tab-nav .call::after {
@@ -228,6 +553,7 @@ body {
 }
 
 .middle .tab-nav .tab-content ul {
+  height: 100%;
   display: flex;
   flex-direction: column;
   margin: 200px 0;
@@ -238,6 +564,7 @@ body {
 
 .middle .tab-nav .tab-content ul li {
   width: 100%;
+  height: 40px;
   border-bottom: 1px solid #ccc;
   margin-bottom: 20px;
   padding-left: 20px;
@@ -294,8 +621,9 @@ body {
 }
 
 .middle .middle-item .check-page {
+  position: relative;
   width: 1400px;
-  height: 750px;
+  height: 900px;
   margin: 20px auto;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.6);
@@ -318,7 +646,6 @@ body {
 
 .middle .middle-item .check-page .statistics {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   height: 48px;
   font-size: 20px;
@@ -328,30 +655,35 @@ body {
   color: #000;
 }
 
-.middle .middle-item .check-page .statistics p span {
-  color: #9b6757;
+.middle .middle-item .check-page .statistics input {
+  height: 30px;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  padding-left: 10px;
 }
 
-.middle .middle-item .check-page .statistics .change-page {
-  margin-right: 800px;
-}
-
-.middle .middle-item .check-page .statistics .change-page button {
-  width: 50px;
-  height: 48px;
-  text-align: center;
+.middle .middle-item .check-page .statistics button {
+  width: 60px;
+  height: 30px;
   outline: none;
   border: none;
-  border-radius: 8px;
-  background: #b8daff;
-  color: #000;
-  transition: all .3s;
-  font-size: 14px;
+  background: skyblue;
+  border-radius: 4px;
   cursor: pointer;
+  transition: all .2s;
 }
 
-.middle .middle-item .check-page .statistics .change-page button:hover {
-  opacity: 0.8;
+.middle .middle-item .check-page .statistics button:hover {
+  background: rgba(135, 206, 235, 0.6);
+}
+
+.middle .middle-item .check-page .statistics p {
+  align-self: flex-end;
+}
+
+.middle .middle-item .check-page .statistics p span {
+  color: #9b6757;
 }
 
 .middle .middle-item .check-page table {
@@ -407,183 +739,165 @@ body {
   background: rgba(135, 206, 235, 0.6);
 }
 
-.middle .middle-item .modify-page {
-  position: relative;
-  width: 1400px;
-  height: 200px;
-  margin: 20px auto;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
-  display: none;
-  background: #efedeb;
-}
-
-.middle .middle-item .modify-page .ac-img {
-  position: relative;
-}
-
-.middle .middle-item .modify-page .ac-img img {
+.middle .middle-item .check-page .page-changing-module {
   position: absolute;
-  top: -80px;
-  right: 0;
-  width: 100px;
-  height: 100px;
-}
-
-.middle .middle-item .modify-page p {
-  position: absolute;
-  top: -60px;
-  left: 550px;
-  font-size: 35px;
-  letter-spacing: 5px;
-}
-
-.middle .middle-item .modify-page .user-info {
-  width: 100%;
-  margin: 50px auto;
-  text-align: center;
-  color: #333;
-}
-
-.middle .middle-item .modify-page .user-info input,
-.middle .middle-item .modify-page .user-info select {
-  width: 100px;
-  height: 32px;
-  outline: none;
-  border: 1px solid #b8daff;
-  border-radius: 5px;
-  padding-left: 5px;
-  margin-right: 15px;
-}
-
-.middle .middle-item .modify-page .user-info .modify {
-  width: 80px;
-  height: 32px;
-  font-size: 16px;
-  color: #721c24;
-  background-color: #b8daff;
-  outline: none;
-  border: 0;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all .3s;
-}
-
-.middle .middle-item .modify-page .user-info .modify:hover {
-  background-color: rgba(184, 218, 255, 0.6);
-}
-
-.middle .middle-item .modify-page .user-info .address {
-  width: 200px;
-}
-
-.middle .middle-item .modify-page .modify-tip-ok {
-  text-align: center;
-  color: #793b18;
-  font-size: 30px;
-  cursor: default;
-  opacity: 0;
-  transition: all .2s;
-}
-
-.middle .middle-item .check-delete-page {
-  position: relative;
-  width: 1400px;
-  height: 200px;
-  margin: 20px auto;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
-  display: none;
-  background: #efedeb;
-}
-
-.middle .middle-item .check-delete-page .ac-img {
-  position: relative;
-}
-
-.middle .middle-item .check-delete-page .ac-img img {
-  position: absolute;
-  top: -80px;
-  right: 0;
-  width: 100px;
-  height: 100px;
-}
-
-.middle .middle-item .check-delete-page p {
-  position: absolute;
-  top: -60px;
-  left: 600px;
-  font-size: 35px;
-  letter-spacing: 5px;
-}
-
-.middle .middle-item .check-delete-page .delete-check-id {
-  color: #000;
-  margin-top: 20px;
-  text-align: center;
-}
-
-.middle .middle-item .check-delete-page .delete-check-id input {
-  width: 100px;
-  height: 32px;
-  outline: none;
-  border: 1px solid #b8daff;
-  border-radius: 5px;
-  margin-left: 20px;
-}
-
-.middle .middle-item .check-delete-page .delete-check-id [name=check-delete-id] {
-  padding-left: 10px;
-}
-
-.middle .middle-item .check-delete-page .delete-check-id [type="button"] {
-  width: 80px;
-  height: 32px;
-  font-size: 16px;
-  color: #721c24;
-  background-color: #b8daff;
-  outline: none;
-  border: 0;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all .3s;
-}
-
-.middle .middle-item .check-delete-page .delete-check-id [type="button"]:hover {
-  background-color: rgba(184, 218, 255, 0.6);
-}
-
-.middle .middle-item .check-delete-page .delete-check {
-  color: #000;
-  opacity: 0;
-}
-
-.middle .middle-item .check-delete-page .delete-check h2 {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 24px;
-}
-
-.middle .middle-item .check-delete-page .delete-check ul {
-  width: 100%;
+  bottom: 20px;
+  left: 525px;
   display: flex;
   justify-content: space-around;
+  width: 300px;
   align-items: center;
-  margin-top: 10px;
-  font-size: 20px;
+  letter-spacing: 5px;
+  color: #000;
 }
 
-.middle .middle-item .check-delete-page .delete-tip-ok {
+.middle .middle-item .check-page .page-changing-module .change-page button {
+  width: 50px;
+  height: 40px;
   text-align: center;
-  color: #793b18;
-  font-size: 30px;
-  cursor: default;
-  opacity: 0;
-  transition: all .2s;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  background: #b8daff;
+  color: #000;
+  transition: all .3s;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-.middle .middle-item .active {
+.middle .middle-item .check-page .page-changing-module .change-page button:hover {
+  opacity: 0.8;
+}
+
+.middle .middle-item .check-page .page-changing-module .backAll {
+  position: absolute;
+  top: 0;
+  right: -820px;
+  opacity: 0;
+  transition: all .4s;
+}
+
+.middle .middle-item .check-page .page-changing-module .backAll .backAllbtn {
+  width: 100px;
+  height: 40px;
+  background: #b8daff;
+  text-align: center;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  background: #b8daff;
+  color: #000;
+  transition: all .4s;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.middle .middle-item .check-page .page-changing-module .backAll .backAllbtn:hover {
+  opacity: 0.8;
+}
+
+.middle .middle-item .personalcenter {
+  width: 1400px;
+  height: 900px;
+  margin: 20px auto;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
+  display: none;
+  background: antiquewhite;
+  color: #000;
+}
+
+.middle .middle-item .personalcenter h1 {
+  text-align: center;
+  font-size: 40px;
+  margin-top: 20px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 20px;
+}
+
+.middle .middle-item .personalcenter .personal-table {
+  border-collapse: collapse;
+  margin: 150px auto;
+}
+
+.middle .middle-item .personalcenter .personal-table td {
+  border: 1px solid;
+  width: 600px;
+  height: 100px;
+}
+
+.middle .middle-item .personalcenter .personal-table td div {
+  display: flex;
+  align-items: center;
+  letter-spacing: 4px;
+  cursor: default;
+}
+
+.middle .middle-item .personalcenter .personal-table td div p {
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  padding-left: 5px;
+  font-size: 27px;
+}
+
+.middle .middle-item .personalcenter .personal-table td div span {
+  display: block;
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  font-size: 25px;
+}
+
+.middle .middle-item .personalcenter .personal-table td div input {
+  width: 80%;
+  height: 80px;
+  padding-left: 10px;
+  color: #000;
+  border: none;
+  font-size: 24px;
+  outline: none;
+  border-radius: 8px;
+}
+
+.middle .middle-item .personalcenter .personal-table td div select,
+.middle .middle-item .personalcenter .personal-table td div option {
+  width: 80%;
+  height: 80px;
+  color: #000;
+  border: none;
+  outline: none;
+  font-size: 24px;
+  border-radius: 8px;
+}
+
+.middle .middle-item .personalcenter .personalButton {
+  display: flex;
+  justify-content: space-around;
+}
+
+.middle .middle-item .personalcenter .personalButton button {
+  width: 200px;
+  height: 80px;
+  background: #b8daff;
+  text-align: center;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  background: #b8daff;
+  color: #000;
+  transition: all .4s;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.middle .middle-item .personalcenter .personalButton button:hover {
+  opacity: 0.8;
+}
+
+.middle .active {
   display: block !important;
 }
